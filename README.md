@@ -1,6 +1,8 @@
 # InfoFlicks
  **InfoFlicks** is a web-based platform that provides information about movies and TV series. It uses the TMDB API to fetch data.
 
+[Visit site]( https://saikrishna284.github.io/InfoFlicks/)
+
 ### About
 InfoFlicks is a project that allows users to explore movies and TV shows, view their ratings, overviews, and more details such as the director, creator, and cast. The website is designed with a clean user interface to make it easy to browse and discover trending and popular media.
 
