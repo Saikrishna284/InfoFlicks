@@ -1,0 +1,665 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: #051014;
+}
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #081b21;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+header #logo {
+  margin-left: 50px;
+  width: 250px;
+  object-fit: cover;
+}
+header .form {
+  margin-right: 100px;
+}
+header #search-input {
+  width: 300px;
+  height: 30px;
+  background-color: #eaeded;
+  color: rgb(0, 0, 0);
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+}
+header #search-input:focus {
+  border: 2px solid #3aafcf;
+}
+header #submit-btn {
+  display: none;
+}
+.search-list {
+  position: absolute;
+  height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+  right: 100;
+  width: 300px;
+}
+.search-list::-webkit-scrollbar {
+  width: 5px;
+}
+.search-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.search-list::-webkit-scrollbar-thumb {
+  background-color: #3aafcf;
+  outline: none;
+  border-radius: 10px;
+}
+.hide-search-list {
+  display: none;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 5px 0 5px;
+  background-color: #0c2931;
+  border-bottom: 1px solid #103742;
+  height: 50px;
+  cursor: pointer;
+}
+.search-container:hover {
+  background-color: #081b21;
+}
+.search-container p {
+  margin-left: 15px;
+  color: #abb2b9;
+  font-size: 15px;
+}
+.container {
+  margin: 10px 100px 100px;
+  width: 90%;
+  height: 100%;
+}
+.slideshow-container {
+  max-width: 95%;
+  height: 400px;
+  position: relative;
+}
+.slides {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+  opacity: 0.4;
+}
+.info-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eaeded;
+}
+.poster {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #eaeded;
+}
+.info {
+  margin-left: 30px;
+  width: 60%;
+  height: 70%;
+}
+.title {
+  font-size: 35px;
+  letter-spacing: 4px;
+}
+.title .year {
+  font-weight: 400;
+}
+.info h3 {
+  margin-top: 20px;
+}
+#overview {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -25px;
+  color: #eaeded;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 1;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.dots-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  bottom: 5px;
+  margin: auto;
+}
+.dot {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #bbb;
+  margin: 0 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#movie-title {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#search-poster {
+  width: 30px;
+  object-fit: cover;
+}
+
+.trending-movies,
+.trending-tv,
+.popular-movie,
+.popular-tv,
+.toprated-movie,
+.toprated-tv {
+  position: relative;
+  width: 95%;
+  height: 40%;
+}
+.trending-movies {
+  margin-top: 20px;
+}
+
+.trending-movies ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.trending-tv ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.popular-movie ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.popular-tv ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.toprated-movie ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.toprated-tv ::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+#heading {
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+#heading span {
+  color: #3aafcf;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.trending-movie-container,
+.trending-tv-container,
+.popular-movie-container,
+.popular-tv-container,
+.toprated-movie-container,
+.toprated-tv-container {
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+#movie-container,
+#tv-container,
+#popular-each-movie-container,
+#popular-each-tv-container,
+#toprated-each-movie-container,
+#toprated-each-tv-container {
+  width: 170px;
+  height: 290px;
+  margin-right: 20px;
+  color: #ffffff;
+}
+#anchor-tag {
+  text-decoration: none;
+  color: #ffffff;
+}
+#poster {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+}
+#poster:hover {
+  border-radius: 10px;
+  border: 4px solid #eaeded;
+  cursor: pointer;
+  opacity: 0.8;
+}
+#movie-container h5,
+#tv-container h5,
+#popular-each-movie-container h5,
+#popular-each-tv-container h5,
+#toprated-each-movie-container h5,
+#toprated-each-tv-container h5 {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+#scroll-left-btn-trending-movie {
+  position: absolute;
+  left: 70px;
+  top: 650px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-trending-movie span,
+#scroll-right-btn-trending-movie span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-trending-movie span:hover,
+#scroll-right-btn-trending-movie span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-trending-movie {
+  position: absolute;
+  right: 90px;
+  top: 650px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-trending-tv {
+  position: absolute;
+  left: 70px;
+  top: 1020px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-trending-tv span,
+#scroll-right-btn-trending-tv span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-trending-tv span:hover,
+#scroll-right-btn-trending-tv span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-trending-tv {
+  position: absolute;
+  right: 90px;
+  top: 1020px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#scroll-left-btn-popular-movie {
+  position: absolute;
+  left: 70px;
+  top: 1400px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-popular-movie span,
+#scroll-right-btn-popular-movie span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-popular-movie span:hover,
+#scroll-right-btn-popular-movie span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-popular-movie {
+  position: absolute;
+  right: 90px;
+  top: 1400px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#scroll-left-btn-popular-tv {
+  position: absolute;
+  left: 70px;
+  top: 1780px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-popular-tv span,
+#scroll-right-btn-popular-tv span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-popular-tv span:hover,
+#scroll-right-btn-popular-tv span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-popular-tv {
+  position: absolute;
+  right: 90px;
+  top: 1770px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#scroll-left-btn-toprated-movie {
+  position: absolute;
+  left: 70px;
+  top: 2150px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-toprated-movie span,
+#scroll-right-btn-toprated-movie span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-toprated-movie span:hover,
+#scroll-right-btn-toprated-movie span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-toprated-movie {
+  position: absolute;
+  right: 90px;
+  top: 2150px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#scroll-left-btn-toprated-tv {
+  position: absolute;
+  left: 70px;
+  top: 2520px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#scroll-left-btn-toprated-tv span,
+#scroll-right-btn-toprated-tv span {
+  font-size: 25px;
+  opacity: 0.5;
+  color: #eaeded;
+}
+#scroll-left-btn-toprated-tv span:hover,
+#scroll-right-btn-toprated-tv span:hover {
+  opacity: 1;
+}
+#scroll-right-btn-toprated-tv {
+  position: absolute;
+  right: 90px;
+  top: 2520px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #081b21;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+footer #footer-logo {
+  width: 250px;
+  object-fit: cover;
+}
+footer p {
+  color: #abb2b9;
+  font-size: 15px;
+}
+
+@media (max-width: 430px) {
+  body {
+    -webkit-tap-highlight-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+  }
+  header #logo {
+    margin-left: 2px;
+    width: 180px;
+    object-fit: cover;
+  }
+  header .form {
+    margin-right: 5px;
+  }
+  header #submit-btn {
+    display: initial;
+    margin-right: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  #header-icon {
+    width: 25px;
+  }
+  header #search-input {
+    display: none;
+    position: absolute;
+    padding-left: 26px;
+    top: 60px;
+    left: 2;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    border-radius: 0px;
+    font-size: medium;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .search-list {
+    position: absolute;
+    height: 230px;
+    overflow-y: auto;
+    top: 100px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  .container {
+    margin: 10px 10px 0px 15px;
+    width: 95%;
+    height: 100%;
+  }
+  .slideshow-container {
+    max-width: 100%;
+    height: 220px;
+    position: relative;
+  }
+  .backdrop {
+    filter: blur(1px);
+  }
+
+  .poster {
+    width: 90px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #eaeded;
+  }
+  .info {
+    margin-left: 8px;
+    width: 65%;
+    height: 60%;
+  }
+  .title {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+  .info h3 {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  #overview {
+    margin-top: 8px;
+    font-size: 10px;
+  }
+  .prev,
+  .next {
+    display: none;
+  }
+
+  .dot {
+    margin: 0 2px;
+    width: 5px;
+    height: 5px;
+  }
+  #heading {
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+  }
+  #heading span {
+    color: #3aafcf;
+    font-size: larger;
+    font-weight: bold;
+  }
+  .trending-movie-container,
+  .trending-tv-container,
+  .popular-movie-container,
+  .popular-tv-container,
+  .toprated-movie-container,
+  .toprated-tv-container {
+    margin-top: 20px;
+  }
+  #movie-container,
+  #tv-container,
+  #popular-each-movie-container,
+  #popular-each-tv-container,
+  #toprated-each-movie-container,
+  #toprated-each-tv-container {
+    width: 130px;
+    height: 240px;
+    margin-right: 15px;
+    color: #ffffff;
+  }
+  #poster {
+    width: 110px;
+    height: 170px;
+    object-fit: cover;
+  }
+  #poster:hover {
+    border-radius: 10px;
+    border: 2px solid #eaeded;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  #scroll-left-btn-trending-movie,
+  #scroll-right-btn-trending-movie,
+  #scroll-left-btn-trending-tv,
+  #scroll-right-btn-trending-tv,
+  #scroll-left-btn-popular-movie,
+  #scroll-right-btn-popular-movie,
+  #scroll-left-btn-popular-tv,
+  #scroll-right-btn-popular-tv,
+  #scroll-left-btn-toprated-movie,
+  #scroll-right-btn-toprated-movie,
+  #scroll-left-btn-toprated-tv,
+  #scroll-right-btn-toprated-tv {
+    display: none;
+  }
+  footer {
+    background-color: #081b21;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  footer #footer-logo {
+    width: 100px;
+    object-fit: cover;
+  }
+  footer p {
+    color: #abb2b9;
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+}
