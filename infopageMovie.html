@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infoflicks</title>
+    <link rel="icon" type="image/x-icon" href="infoFlicks-logo.png" />
+    <link rel="stylesheet" href="infopage-movie-styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <img id="logo" src="infoflicks-logo.png" />
+      <a href="index.html"><button id="home-btn">Home</button></a>
+    </header>
+    <main class="container">
+      <div class="poster-container"></div>
+      <div class="info-container">
+        <div class="title-container"></div>
+        <div class="rating-container">
+          <h3>Rating</h3>
+          <div>
+            <svg
+              id="star-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              class="ipc-icon ipc-icon--star sc-eb51e184-4 hPnFBb"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              role="presentation"
+            >
+              <path
+                d="M12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"
+              ></path>
+            </svg>
+            <p><span id="rating"></span>/10</p>
+          </div>
+        </div>
+        <div class="overview-container">
+          <h3>Overview</h3>
+          <p id="overview"></p>
+        </div>
+        <div class="director-container">
+          <div>
+            <h4 id="director"></h4>
+            <p>Director</p>
+          </div>
+        </div>
+        <div class="og-language-title-streaming-container">
+          <div>
+            <div class="Original-language-container">
+              <p>
+                Original Language &nbsp;:&nbsp;
+                <span id="original-language"></span>
+              </p>
+            </div>
+            <div class="Original-title-container">
+              <p>
+                Original Title &nbsp;:&nbsp; <span id="original-title"></span>
+              </p>
+            </div>
+          </div>
+          <div class="streaming">
+            <h3>Streaming</h3>
+          </div>
+        </div>
+
+        <div class="cast-container">
+          <h3>Top Cast</h3>
+          <div class="cast"></div>
+        </div>
+      </div>
+    </main>
+    <script src="infopageMovie.js"></script>
+  </body>
+</html>
