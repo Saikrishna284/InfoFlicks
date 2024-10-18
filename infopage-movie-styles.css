@@ -198,7 +198,7 @@ header #home-btn:hover {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   body {
     -webkit-tap-highlight-color: transparent;
     height: auto;
