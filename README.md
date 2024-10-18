@@ -6,7 +6,11 @@ InfoFlicks is a project that allows users to explore movies and TV shows, view t
 
 ### Features
  **Search Functionality**: Search for movies and TV shows easily.
+ 
  **Trending Movies & TV Shows**: Displays currently trending media.
+ 
  **Popular Movies & TV Shows**: Lists the most popular movies and TV shows.
+ 
  **Top Rated**: View the top-rated content based on ratings.
+ 
  **Detailed Information Pages**: Individual pages for movies and TV shows displaying detailed information such as rating, overview, director/creator, cast, and more.
